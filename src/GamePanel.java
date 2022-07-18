@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.SQLOutput;
 import java.util.Random;
 
 /*
@@ -12,14 +11,13 @@ import java.util.Random;
  * -- Super apples that give like 5 points
  * -- AI snake?
  * -- Portals?
- * -- Just make this like a 2d runner game
  *
  *COULD BE BETTER
- * -- If direction is the same as the current direction, it should give a speed boost
- * ---- Looks to laggy and weird. Probably need to rethink the game timer
+ * ---- Speed boost looks laggy and weird. Probably need to rethink the game timer
  * ---- i.e the movement to frame ratio shouldnt be 1 frame = 1 moved square
  * ---- maybe like 5 frames = 1 moved square or something.
  * DONE
+ * -- If input direction is the same as the current direction, it should give a speed boost
  * -- Hit space to quickly restart game
  * -- Pausing functionality
  * */
@@ -62,7 +60,7 @@ public class GamePanel extends JPanel implements ActionListener {
     //Game is running?
     boolean running = false;
     //Game is over?
-    boolean isGameOver = false; //not implemented yet
+    boolean isGameOver = false;
 
     //Random features
     boolean bordersOpen = false;
@@ -180,6 +178,8 @@ public class GamePanel extends JPanel implements ActionListener {
         if ((x[0] == appleX) && (y[0] == appleY)) {
             bodyParts++;
             applesEaten++;
+            newApple();
+            newApple();
             newApple();
         }
     }
